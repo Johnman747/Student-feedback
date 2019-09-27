@@ -7,8 +7,10 @@ class Form4 extends Component {
 
   render() {
     return (
-    <Router>
-        <h1>From4</h1>
+        <Router>
+        <h1>How are your feeling today?</h1>
+        <input type="text" placeholder="Type Here"/>
+        <Link to='/'><button>Submit</button></Link>
     </Router>
     );
   }

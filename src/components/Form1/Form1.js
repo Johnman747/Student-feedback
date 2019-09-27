@@ -8,7 +8,15 @@ class Form1 extends Component {
   render() {
     return (
     <Router>
-        <h1>From1</h1>
+        <h1>How are your feeling today?</h1>
+        <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <Link to='/2'><button>Next</button></Link>
     </Router>
     );
   }
