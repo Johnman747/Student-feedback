@@ -9,8 +9,33 @@ import { Provider } from 'react-redux';
 
 import registerServiceWorker from './registerServiceWorker';
 
+const formReducer = (state=[],action)=>{
+
+    switch(action.type){
+        case 'SET_FORM_1':
+            state = [...state,action.payload]
+            console.log(state);
+            return state
+        case 'SET_FORM_2':
+            state = [...state,action.payload]
+            console.log(state);
+            return state
+        case 'SET_FORM_3':
+            state = [...state,action.payload]
+            console.log(state);
+            return state
+        case 'SET_FORM_4':
+            state = [...state,action.payload]
+            console.log(state);
+            return state
+        default:
+            return state
+    }
+}
+
 const storeInstance = createStore(
     combineReducers({
+        formReducer
     }),
 );
 
