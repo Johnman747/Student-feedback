@@ -15,7 +15,7 @@ class Form4 extends Component {
         })
     }
     handelClick = ()=>{
-        this.props.dispatch({type:'SET_FORM_4', payload: this.state})
+        this.props.dispatch({type:'SET_FORM_4', payload: this.state.form4})
     }
   render() {
     return (

@@ -13,7 +13,7 @@ class Form2 extends Component {
         })
     }
     handelClick = ()=>{
-        this.props.dispatch({type:'SET_FORM_2', payload: this.state})
+        this.props.dispatch({type:'SET_FORM_2', payload: this.state.form2})
     }
   render() {
     return (

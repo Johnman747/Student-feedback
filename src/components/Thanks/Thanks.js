@@ -7,7 +7,13 @@ import {HashRouter as Router, Link} from 'react-router-dom';
 class Thanks extends Component {
 
     handelClick=()=>{
-        
+        this.props.dispatch({type:'SET_CLEAR'})
+        axios.post('/feedback', this.props.reduxStore.formReducer)
+        .then((result)=>{
+            console.log(result);
+        }).catch((err)=>{
+            console.log(err);
+        })
     }
 
 render() {
