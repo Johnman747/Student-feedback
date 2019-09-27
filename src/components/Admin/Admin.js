@@ -24,6 +24,15 @@ class  Admin extends Component {
         })
     }
 
+    deleteBtn = (id)=>{
+        axios.delete('/feedback/'+ id)
+        .then((result)=>{
+            this.getFeedback();
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
 render() {
     return (
     <Router>
@@ -35,6 +44,7 @@ render() {
                     <th>Understanding</th>
                     <th>Support</th>
                     <th>Comments</th>  
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,6 +54,7 @@ render() {
                         <td>{item.understanding}</td>
                         <td>{item.support}</td>
                         <td>{item.comments}</td>
+                        <td><button onClick={()=>this.deleteBtn(item.id)}>Delete</button></td>
                     </tr>)
 
                 })}
