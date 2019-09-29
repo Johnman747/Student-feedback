@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {HashRouter as Router} from 'react-router-dom';
+import {Table, TableBody, TableCell, TableHead, TableRow,Button} from '@material-ui/core'
+import './Admin.css'
 
 class  Admin extends Component {
     state={
@@ -23,12 +25,16 @@ class  Admin extends Component {
     }
 
     deleteBtn = (id)=>{
-        axios.delete('/feedback/'+ id)
-        .then((result)=>{
-            this.getFeedback();
-        }).catch((err)=>{
-            console.log(err);
-        })
+        ;
+        if(window.confirm('Are you sure?')){
+            axios.delete('/feedback/'+ id)
+            .then((result)=>{
+                this.getFeedback();
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }
+      
     }
 
     handleFlag = (boolean, id)=>{
@@ -45,34 +51,34 @@ render() {
     return (
     <Router>
         <h1>Admin Page</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Feelings</th>
-                    <th>Understanding</th>
-                    <th>Support</th>
-                    <th>Comments</th> 
-                    <th>Flag for Review</th> 
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
+        <Table>
+            <TableHead className='tableHead'>
+                <TableRow>
+                    <TableCell>Feelings</TableCell>
+                    <TableCell>Understanding</TableCell>
+                    <TableCell>Support</TableCell>
+                    <TableCell>Comments</TableCell> 
+                    <TableCell>Flag for Review</TableCell> 
+                    <TableCell>Delete</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
                 {this.state.feedback.map((item)=>{
-                    return(<tr key={item.id}>
-                        <td>{item.feeling}</td>
-                        <td>{item.understanding}</td>
-                        <td>{item.support}</td>
-                        <td>{item.comments}</td>
+                    return(<TableRow key={item.id}>
+                        <TableCell>{item.feeling}</TableCell>
+                        <TableCell>{item.understanding}</TableCell>
+                        <TableCell>{item.support}</TableCell>
+                        <TableCell>{item.comments}</TableCell>
                         {item.flagged?
-                        <td><button onClick={()=>this.handleFlag(item.flagged, item.id)}>Falgged</button></td>:
-                        <td><button onClick={()=>this.handleFlag(item.flagged, item.id)}>Flag</button></td>
+                        <TableCell><Button variant="contained" className="flagged" onClick={()=>this.handleFlag(item.flagged, item.id)}>Unflag</Button></TableCell>:
+                        <TableCell><Button variant="contained" onClick={()=>this.handleFlag(item.flagged, item.id)}>Flag</Button></TableCell>
                         }
-                        <td><button onClick={()=>this.deleteBtn(item.id)}>Delete</button></td>
-                    </tr>)
+                        <TableCell><Button variant="contained" onClick={()=>this.deleteBtn(item.id)}>Delete</Button></TableCell>
+                    </TableRow>)
 
                 })}
-            </tbody>
-        </table>
+            </TableBody>
+        </Table>
     </Router>
     );
   }

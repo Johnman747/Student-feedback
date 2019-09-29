@@ -17,7 +17,7 @@ router.post('/', (req,res)=>{
     console.log(req.body)
     let el = req.body
     const queryText=`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1,$2,$3,$4);`;
-    pool.query(queryText,[el[0],el[1],el[2],el[3]])
+    pool.query(queryText,[el.form1,el.form2,el.form3,el.form4])
     .then((result)=>{
         res.sendStatus(201);
     }).catch((err)=>{

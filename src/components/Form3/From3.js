@@ -2,31 +2,38 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 import {connect} from 'react-redux';
 import {HashRouter as Router, Link} from 'react-router-dom';
+import {Button,Slider} from '@material-ui/core';
+import "./Form3.css"
 
 class Form3 extends Component {
     state = {
-        form3: "1"
+        answer:{
+            form3: 1
+        }
     }
-    handelChange= (e)=>{
+    handelChange= (e,value)=>{
         this.setState({
-            form3: e.target.value
+            answer:{
+                form3: value
+            }
         })
     }
     handelClick = ()=>{
-        this.props.dispatch({type:'SET_FORM_3', payload: this.state.form3})
+        this.props.dispatch({type:'SET_FORM_3', payload: this.state.answer.form3})
     }
   render() {
     return (
         <Router>
         <h1>How well are you being supported?</h1>
-        <select value={this.state.form3} onChange={this.handelChange}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <Link to='/4'><button onClick={this.handelClick}>Next</button></Link>
+        <div className="slider">
+        <Slider defaultValue={1} step={1} marks min={1} max={5} valueLabelDisplay='on'
+         onChange={(e,value)=>this.handelChange(e,value)}>
+        </Slider>
+        </div>
+        <br/>
+        <Link to='/2'><Button variant='contained'>Back</Button></Link>
+        <Link to='/4'><Button variant='contained' onClick={this.handelClick}>Next</Button></Link>
+
     </Router>
     );
   }

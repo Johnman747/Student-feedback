@@ -8,7 +8,7 @@ This is a project that displays the usage of hash routing and making database re
 
 # Name of Application
 
-Leave Feedback -- [heroku app link]
+"Leave Feedback" -- [heroku app link]
 
 ## Built With
 

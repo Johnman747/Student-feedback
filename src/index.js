@@ -9,27 +9,34 @@ import { Provider } from 'react-redux';
 
 import registerServiceWorker from './registerServiceWorker';
 
-const formReducer = (state=[],action)=>{
+const feedback = {
+    form1:'',
+    form2:'',
+    form3:'',
+    form4:''
+}
 
+
+const formReducer = (state=feedback,action)=>{
     switch(action.type){
         case 'SET_FORM_1':
-            state = [...state,action.payload]
+            state.form1 = action.payload
             console.log(state);
             return state
         case 'SET_FORM_2':
-            state = [...state,action.payload]
+            state.form2 = action.payload
             console.log(state);
             return state
         case 'SET_FORM_3':
-            state = [...state,action.payload]
+            state.form3 = action.payload
             console.log(state);
             return state
         case 'SET_FORM_4':
-            state = [...state,action.payload]
+            state.form4 = action.payload
             console.log(state);
             return state
         case 'SET_CLEAR':
-            state = [];
+            state = feedback
             console.log(state);
             return state;
         default:
