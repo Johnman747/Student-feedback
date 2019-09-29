@@ -1,3 +1,7 @@
+.tableSize{
+    margin-left:5%;
+    margin-right: 5%;
+}
 th{
     background-color: rgb(129, 129, 129)
 }
@@ -7,4 +11,8 @@ tr:nth-child(even){
 }
 tr:nth-child(odd){
     background-color: rgb(216, 215, 215)
+}
+
+.flagged{
+    background-color: rgb(250, 65, 65);
 }
