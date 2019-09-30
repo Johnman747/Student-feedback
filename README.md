@@ -8,7 +8,7 @@ This is a project that displays the usage of hash routing and making database re
 
 # Name of Application
 
-"Leave Feedback" -- [heroku app link]
+"Leave Feedback" -- [`https://damp-wave-42474.herokuapp.com/#/`]
 
 ## Built With
 
@@ -43,7 +43,7 @@ High level list of items completed.
 
 ### Next Steps
 
-- [ ] add in better css/material ui
+- [x] add in better css/material ui
 
 ## Deployment
 
