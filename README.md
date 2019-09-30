@@ -40,14 +40,11 @@ High level list of items completed.
 - [x] on submit sends all data to database
 - [x] you can see all responses on the `/admin` page
 - [x] you can update and delete responses from the `/admin` page
+- [x] added material-ui and stylings
 
 ### Next Steps
 
-- [x] add in better css/material ui
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+- [] add login
 
 ## Authors
 
